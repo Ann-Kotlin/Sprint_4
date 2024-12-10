@@ -1,25 +1,23 @@
-# 129273766
-def main(nums: list[int], limit: int) -> int:
+# 129566869
+def quantity(nums: list[int], limit: int) -> int:
     """Основной цикл программы"""
     # Сортировка списка по убыванию
-    nums.sort(reverse=True)
+    nums_sored = sorted(nums, reverse=True)
     count = 0
-    g = len(nums) - 1
-    for i in range(len(nums)):
-        if i == g:
-            count += 1
+    left = len(nums) - 1
+    for right in range(len(nums)):
+        if right == left:
+            break
+        elif right > left:
             return count
-        elif i > g:
-            return count
-        elif nums[i] + nums[g] <= limit:
-            count += 1
-            g -= 1
-        else:
-            count += 1
+        elif nums_sored[right] + nums_sored[left] <= limit:
+            left -= 1
+        count += 1    
+    count += 1        
     return count
 
 
 if __name__ == '__main__':
-    nums = list(map(int, input().split()))
+    nums = [int(x) for x in input().split()]
     limit = int(input())
-    print(main(nums, limit))
+    print(quantity(nums, limit))
