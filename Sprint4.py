@@ -1,4 +1,4 @@
-# 129887867
+# 129990914
 def quantity(nums: list[int], limit: int) -> int:
     """Основной цикл программы"""
     # Сортировка списка по убыванию
@@ -9,9 +9,7 @@ def quantity(nums: list[int], limit: int) -> int:
     while left <= right:
         if nums_sored[right] + nums_sored[left] <= limit:
             right -= 1
-            left += 1
-        else:
-            left += 1
+        left += 1
         count += 1           
     return count
 
